@@ -1,0 +1,194 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <!-- CSS only -->
+
+    <link rel="stylesheet" href="admin_style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/admin_page/admin_style.css">
+    <link rel="stylesheet" href="/admin_page/admin_model_popup.css">
+ 
+
+</head>
+
+<body>
+
+    <div class="manual-container">
+
+
+
+    
+
+
+        <a href="#" id="mySizeChart"></a>
+
+
+        <div id="modelContainer" class="admin_modal">
+
+
+
+            <div class="admin_modal-content">
+                <div class="model-content-header">
+                    <h1 style="color: black;">Printout Properties
+                        <!-- <span onclick=" modal_container.style.display = 'none'"><img src="images/close.png" alt=""></span> -->
+                        <span class="admin_close">&times;</span>
+                    </h1>
+
+                </div>
+                <hr>
+
+                <table class="table text-center" id="paperTable">
+                    <tbody id="paperTbody">
+                    <tr>
+                        <td >USER NAME</td>
+                        <td id="userNameTD"> </td>
+                    </tr>
+                    <tr>
+                        <td>CONTACT NUMBER</td>
+                        <td id="contactTD"></td>
+                    </tr>
+                    <tr>
+                        <td>PAPER SIZE</td>
+                        <td id="paperSizeTD"></td>
+
+                    </tr>
+                    <tr>
+                        <td>PAPER TYPE</td>
+                        <td id="paperTypeTD"></td>
+
+                    </tr> 
+
+                    <tr>
+                        <td>PRINTING SIDES</td>
+                        <td id="printingSidesTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>PRINTING COLOR</td>
+                        <td id="PrintingColorTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>NO OF PAGES</td>
+                        <td id="noOfPagesTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>FILE NAME</td>
+                        <td id="fileName"></td>
+                    </tr> 
+                    <tr>
+                        <td>No Of Copies</td>
+                        <td id="noOfCopies"></td>
+                    </tr> 
+                    <tr>
+                        <td>PAYMENT METHOD</td>
+                        <td id="paymentMethodTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>TOTAL PRICE</td>
+                        <td id="totalPriceTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>DATE</td>
+                        <td id="dateTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>TIME</td>
+                        <td id="timeTD"></td>
+                    </tr> 
+                    <tr>
+                        <td>PAYMENT STATUS</td>
+                        <td id="paymentStatusTD">
+                            <select name="" id="paymentStatusOPTIONS" class="form-control">
+                                <option value="paid">Paid</option>
+                                <option value="not_paid">Not Paid</option>
+                            </select>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td>DELIVERY STATUS</td>
+                        <td >
+                            <select name="" id="deliveryStatusOPTION" class="form-control">
+                                <option value="Initiated">Initiated</option>
+                                <option value="Delivered">Delivered</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody> 
+                </table>
+<DIV class="text-center">
+ <button type="button" class="btn btn-primary">Download PDF</button>
+ <button type="button" class="btn btn-primary" onclick="modalPopupSubmit(activePOPUPJSON)">SUBMIT</button>
+</DIV>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+        <div style="height: 110px;background: #2C3333">
+            <h1 style=" padding-top: 25px;">Welcome
+                Back..<span>admin</span></h1>
+
+        </div>
+
+        <div class="printing_status">
+            <h1>Print Out status</h1>
+            <div style="display: flex;">
+                <h2 style="font-size: 20px; flex: 1;">Revenue: ₹<span style="color: green;"
+                        id="revenueSpanElement">200</span>/-
+
+                    <h2 style="font-size: 20px;">Settled Printout:<span style="color: green" id="settledPrintout">0</span></h2>
+            </div>
+            <div style="display: flex;">
+                <h2 style="font-size: 20px; flex: 1;">Total Sales: <span id="totalSalesCount"
+                        style="color: green" >Count</span></h2>
+                <h2 style="font-size: 20px;">Pending Printout:<span style="color: red" id="pendingPrintout">0</span></h2>
+            </div>
+        </div>
+        <div>
+            <h1 style="color: black;">Filter Options Will be added later</h1>
+        </div>
+        <div class="listDiv" style="overflow: auto;">
+            <table class="table text-center table-hover">
+                <thead class="thead-dark " id="thead" style="background-color:black ;color: white;">
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Document Tilte</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Payment Status</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+<script src="admin_display_elements.js"></script>
+<script src="admin_scripts.js"></script>
+<script src="admin_model_popup.js"></script>
+
+</html>
